@@ -2,9 +2,9 @@ TERMUX_PKG_HOMEPAGE=https://www.frida.re/
 TERMUX_PKG_DESCRIPTION="Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers"
 TERMUX_PKG_LICENSE="wxWindows"
 TERMUX_PKG_MAINTAINER="Henrik Grimler @Grimler91"
-_MAJOR_VERSION=12
-_MINOR_VERSION=11
-_MICRO_VERSION=18
+_MAJOR_VERSION=14
+_MINOR_VERSION=2
+_MICRO_VERSION=2
 TERMUX_PKG_VERSION=${_MAJOR_VERSION}.${_MINOR_VERSION}.${_MICRO_VERSION}
 TERMUX_PKG_GIT_BRANCH=$TERMUX_PKG_VERSION
 TERMUX_PKG_SRCURL=https://github.com/frida/frida.git
@@ -47,9 +47,9 @@ termux_step_make () {
 	else
 		arch=${TERMUX_ARCH}
 	fi
-	CC= CXX= PATH=${TERMUX_PKG_HOSTBUILD_DIR}/bin:$PATH \
+	CC=gcc CXX=g++ PATH=${TERMUX_PKG_HOSTBUILD_DIR}/bin:$PATH \
 		make python-android-${arch} ${TERMUX_PKG_EXTRA_MAKE_ARGS}
-	CC= CXX= PATH=${TERMUX_PKG_HOSTBUILD_DIR}/bin:$PATH \
+	CC=gcc CXX=g++ PATH=${TERMUX_PKG_HOSTBUILD_DIR}/bin:$PATH \
 		make tools-android-${arch} ${TERMUX_PKG_EXTRA_MAKE_ARGS}
 }
 
